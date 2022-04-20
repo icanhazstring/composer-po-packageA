@@ -1,6 +1,7 @@
 {
     "name": "icanhazstring/composer-po-package-a",
     "require": {
-        "symfony/http-kernel": "^4.0 || ^5.4"
+        "php": "^7.4||^8.0",
+        "twig/extensions": "^1.5||^2.0||^3.0"
     }
 }
