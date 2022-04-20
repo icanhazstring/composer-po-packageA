@@ -1,4 +1,6 @@
 {
     "name": "icanhazstring/composer-po-package-a",
-    "require": {}
+    "require": {
+        "symfony/config": "^5.4"
+    }
 }
