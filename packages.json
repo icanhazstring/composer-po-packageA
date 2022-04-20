@@ -1,0 +1,537 @@
+{
+    "packages": {
+        "shep/s3-image-handler": {
+            "0.0.14": {
+                "name": "shep/s3-image-handler",
+                "version": "0.0.14",
+                "dist": {
+                    "url": "https://packages.shopping.check24-test.de/repository/shopping_packages/shep/s3-image-handler/0.0.14/shep-s3-image-handler-0.0.14.zip",
+                    "type": "zip",
+                    "reference": "10b3dd0574f75054973718e508419e66854faa91",
+                    "shasum": "10b3dd0574f75054973718e508419e66854faa91"
+                },
+                "time": "2022-04-07T12:49:01+00:00",
+                "uid": 1349753637,
+                "autoload": {
+                    "psr-4": {
+                        "Shopping\\FE\\S3ImageHandlerBundle\\": "src/"
+                    }
+                },
+                "autoload-dev": {
+                    "psr-4": {
+                        "Shopping\\FE\\S3ImageHandlerBundle\\Tests\\": "tests/"
+                    }
+                },
+                "require": {
+                    "php": "^7.4 || ^8.0",
+                    "ext-json": "*",
+                    "symfony/config": "^4.0 || ^5.0",
+                    "symfony/dependency-injection": "^4.0 || ^5.0",
+                    "symfony/http-kernel": "^4.0 || ^5.4",
+                    "twig/extensions": "^1.5 || ^2.0 || ^3.0"
+                },
+                "require-dev": {
+                    "ergebnis/composer-normalize": "^2.13",
+                    "friendsofphp/php-cs-fixer": "^2.18",
+                    "phpstan/phpstan": "^0.12.83",
+                    "phpunit/phpunit": "^9.5"
+                },
+                "description": "s3 image handler to manipulate image string from FAL",
+                "license": "proprietary",
+                "scripts": {
+                    "build": [
+                        "@build:clean",
+                        "@build:prepare"
+                    ],
+                    "build:clean": [
+                        "rm -rf vendor/"
+                    ],
+                    "build:prepare": [
+                        "@composer:install"
+                    ],
+                    "composer:install": "@composer install --no-interaction --no-scripts",
+                    "lint": [
+                        "@composer validate",
+                        "@lint:phpstan"
+                    ],
+                    "lint:fix": [
+                        "@php vendor/bin/php-cs-fixer fix --allow-risky=yes",
+                        "@composer normalize"
+                    ],
+                    "lint:phpstan": "@php vendor/bin/phpstan analyze src --level=6 --configuration=phpstan.neon",
+                    "test": [
+                        "@test:prepare",
+                        "@test:unit",
+                        "@test:sonar:report_only",
+                        "@test:security"
+                    ],
+                    "test:prepare": "mkdir -p reports",
+                    "test:security": "local-php-security-checker",
+                    "test:sonar": "sonar-scanner -Dsonar.qualitygate.wait=true -Dsonar.qualitygate.timeout=600",
+                    "test:sonar:report_only": "which sonar-scanner && sonar-scanner || true",
+                    "test:unit": "@php -dxdebug.mode=coverage vendor/bin/phpunit --log-junit reports/junit.xml --coverage-clover reports/coverage_clover.xml --coverage-text $(test -z \"$TEAMCITY_PROJECT_NAME\" || echo '--teamcity')"
+                },
+                "type": "symfony-bundle"
+            },
+            "0.0.2": {
+                "name": "shep/s3-image-handler",
+                "version": "0.0.2",
+                "dist": {
+                    "url": "https://packages.shopping.check24-test.de/repository/shopping_packages/shep/s3-image-handler/0.0.2/shep-s3-image-handler-0.0.2.zip",
+                    "type": "zip",
+                    "reference": "133609c05dd78a41cf08fc8ff423b4c2b850eddf",
+                    "shasum": "133609c05dd78a41cf08fc8ff423b4c2b850eddf"
+                },
+                "time": "2022-04-07T12:49:02+00:00",
+                "uid": 3306845039,
+                "autoload": {
+                    "psr-4": {
+                        "Shopping\\FE\\S3ImageHandlerBundle\\": "src/"
+                    }
+                },
+                "require": {
+                    "php": "^7.4||^8.0",
+                    "twig/extensions": "^1.5||^2.0||^3.0"
+                },
+                "require-dev": {
+                    "friends-of-behat/symfony-extension": "^2.0",
+                    "friendsofphp/php-cs-fixer": "^2.18",
+                    "phpstan/phpstan": "^0.12.83",
+                    "phpunit/phpunit": "^9.5"
+                },
+                "description": "s3 image handler to manipulate image string from FAL",
+                "license": "proprietary",
+                "type": "symfony-bundle"
+            }
+        },
+        "c24shopping/delivery-dates-calculator": {
+            "1.1.9": {
+                "name": "c24shopping/delivery-dates-calculator",
+                "version": "1.1.9",
+                "dist": {
+                    "url": "https://packages.shopping.check24-test.de/repository/shopping_packages/c24shopping/delivery-dates-calculator/1.1.9/c24shopping-delivery-dates-calculator-1.1.9.zip",
+                    "type": "zip",
+                    "reference": "74dc7cb68e2f94558d34ae841d71a6bdd1834f76",
+                    "shasum": "74dc7cb68e2f94558d34ae841d71a6bdd1834f76"
+                },
+                "time": "2022-04-07T10:26:00+00:00",
+                "uid": 681604936,
+                "autoload": {
+                    "psr-4": {
+                        "C24Shopping\\DeliveryDatesCalculator\\": "src/"
+                    }
+                },
+                "autoload-dev": {
+                    "psr-4": {
+                        "C24Shopping\\DeliveryDatesCalculator\\Tests\\": "tests/"
+                    }
+                },
+                "require-dev": {
+                    "phpunit/phpunit": "^6.0"
+                },
+                "authors": [
+                    {
+                        "name": "Yurii Oblovatskyi",
+                        "email": "yurii.oblovatskyi@check24.de",
+                        "role": "developer"
+                    }
+                ],
+                "description": "Basic delivery dates calculator implementation",
+                "scripts": {
+                    "build": [
+                        "rm -rf vendor/",
+                        "@composer install --no-interaction --no-scripts",
+                        "@php vendor/bin/phpunit"
+                    ]
+                }
+            }
+        },
+        "elektronik/price-service-bundle": {
+            "2.2.2": {
+                "name": "elektronik/price-service-bundle",
+                "version": "2.2.2",
+                "dist": {
+                    "url": "https://packages.shopping.check24-test.de/repository/shopping_packages/elektronik/price-service-bundle/2.2.2/elektronik-price-service-bundle-2.2.2.zip",
+                    "type": "zip",
+                    "reference": "56eb25dbfcb4df583654b25a3fa1d38afbe52a9f",
+                    "shasum": "56eb25dbfcb4df583654b25a3fa1d38afbe52a9f"
+                },
+                "time": "2022-04-07T12:48:54+00:00",
+                "uid": 2422481289,
+                "autoload": {
+                    "psr-4": {
+                        "Elektronik\\PriceServiceBundle\\": "src/"
+                    }
+                },
+                "autoload-dev": {
+                    "psr-4": {
+                        "Elektronik\\PriceServiceBundle\\Tests\\": "tests/"
+                    }
+                },
+                "require": {
+                    "php": "^7.4 || ^8.0",
+                    "ext-json": "*",
+                    "psr/log": "^1.1",
+                    "symfony/cache": "^4.4 || ^5.1"
+                },
+                "require-dev": {
+                    "ergebnis/composer-normalize": "^2.13",
+                    "friendsofphp/php-cs-fixer": "^2.18",
+                    "phpstan/phpstan": "^0.12.85",
+                    "phpunit/phpunit": "^9.5",
+                    "roave/security-advisories": "dev-master",
+                    "symfony/config": "^4.4 || ^5.2",
+                    "symfony/console": "^4.4 || ^5.2",
+                    "symfony/dependency-injection": "^4.4 || ^5.2",
+                    "symfony/http-kernel": "^4.4 || ^5.2",
+                    "symfony/test-pack": "^1.0"
+                },
+                "conflict": {
+                    "symfony/symfony": "*"
+                },
+                "description": "Calculates shipping Cost",
+                "license": "propietary",
+                "scripts": {
+                    "build": [
+                        "@build:clean",
+                        "@build:prepare"
+                    ],
+                    "build:clean": "rm -rf vendor/",
+                    "build:prepare": "@composer install --no-interaction",
+                    "fix:php-cs-fixer": [
+                        "@php ./vendor/bin/php-cs-fixer fix"
+                    ],
+                    "lint": [
+                        "@fix:php-cs-fixer",
+                        "@phpstan",
+                        "@composer normalize --dry-run"
+                    ],
+                    "phpstan": [
+                        "@php ./vendor/bin/phpstan analyse src"
+                    ],
+                    "test": [
+                        "@test:prepare",
+                        "@test:unit",
+                        "@test:security"
+                    ],
+                    "test:prepare": "mkdir -p reports",
+                    "test:security": "local-php-security-checker",
+                    "test:security:report_only": "command -v local-php-security-checker && local-php-security-checker || true",
+                    "test:unit": "@php ./vendor/bin/phpunit"
+                },
+                "type": "symfony-bundle"
+            }
+        },
+        "search/backend-api-client": {
+            "2.15.1": {
+                "name": "search/backend-api-client",
+                "version": "2.15.1",
+                "dist": {
+                    "url": "https://packages.shopping.check24-test.de/repository/shopping_packages/search/backend-api-client/2.15.1/search-backend-api-client-2.15.1.zip",
+                    "type": "zip",
+                    "reference": "d5c47d1b0b0ea2f4286935b5d559fd2863701e43",
+                    "shasum": "d5c47d1b0b0ea2f4286935b5d559fd2863701e43"
+                },
+                "time": "2022-03-29T07:22:33+00:00",
+                "uid": 1709795726,
+                "autoload": {
+                    "psr-4": {
+                        "Search\\BackendApiClient\\": ""
+                    }
+                },
+                "autoload-dev": {
+                    "psr-4": {
+                        "Search\\BackendApiClient\\Tests\\": "Tests/"
+                    }
+                },
+                "require": {
+                    "ext-json": "*",
+                    "eljam/guzzle-jwt-middleware": "^0.5.0",
+                    "psr/simple-cache": "^1.0",
+                    "search/backend-dto": "^5.1.0",
+                    "symfony/cache": ">=3.0",
+                    "symfony/property-access": ">=3.0",
+                    "symfony/property-info": ">=3.0",
+                    "symfony/serializer": ">=3.0"
+                },
+                "require-dev": {
+                    "phpunit/phpunit": ">=5.0",
+                    "slevomat/coding-standard": "4.6.3",
+                    "squizlabs/php_codesniffer": "^3.4"
+                },
+                "license": "proprietary",
+                "scripts": {
+                    "cs:check": [
+                        "vendor/bin/phpcs --standard=phpcs.xml --colors -ps"
+                    ],
+                    "cs:fix": "vendor/bin/phpcbf --standard=phpcs.xml"
+                },
+                "type": "project"
+            }
+        },
+        "search/backend-dto": {
+            "5.9.1": {
+                "name": "search/backend-dto",
+                "version": "5.9.1",
+                "dist": {
+                    "url": "https://packages.shopping.check24-test.de/repository/shopping_packages/search/backend-dto/5.9.1/search-backend-dto-5.9.1.zip",
+                    "type": "zip",
+                    "reference": "ecbfc278df0edbdff7745fda9ce11f33662e715d",
+                    "shasum": "ecbfc278df0edbdff7745fda9ce11f33662e715d"
+                },
+                "time": "2022-04-08T12:40:32+00:00",
+                "uid": 2459937132,
+                "autoload": {
+                    "psr-4": {
+                        "Search\\BackendDto\\": "src/"
+                    }
+                },
+                "autoload-dev": {
+                    "psr-4": {
+                        "Tests\\": "tests/"
+                    }
+                },
+                "require": {
+                    "ext-json": "*",
+                    "php": ">=7.4"
+                },
+                "require-dev": {
+                    "phpunit/phpunit": "^9.5"
+                },
+                "authors": [
+                    {
+                        "name": "Holding Search Team",
+                        "email": "oliver.larcher@check24.de",
+                        "role": "developer"
+                    }
+                ],
+                "description": "Collection of DTO objects for communication with Unified Search Service",
+                "keywords": [
+                    "dto",
+                    "search"
+                ],
+                "license": "proprietary",
+                "scripts": {
+                    "cs:check": [
+                        "vendor/bin/phpcs --standard=phpcs.xml --colors -ps"
+                    ],
+                    "cs:fix": "vendor/bin/phpcbf --standard=phpcs.xml"
+                },
+                "type": "library"
+            }
+        },
+        "shep/backoffice-pages-dto": {
+            "0.0.13": {
+                "name": "shep/backoffice-pages-dto",
+                "version": "0.0.13",
+                "dist": {
+                    "url": "https://packages.shopping.check24-test.de/repository/shopping_packages/shep/backoffice-pages-dto/0.0.13/shep-backoffice-pages-dto-0.0.13.zip",
+                    "type": "zip",
+                    "reference": "e94e625b4a85462a65b7d37be95d6748c5a18ebd",
+                    "shasum": "e94e625b4a85462a65b7d37be95d6748c5a18ebd"
+                },
+                "time": "2022-04-07T10:49:22+00:00",
+                "uid": 3383198067,
+                "autoload": {
+                    "psr-4": {
+                        "Shopping\\FE\\BackofficePagesDto\\": "src/BackofficePagesDto",
+                        "Shopping\\FE\\BackofficePagesDtoMock\\": "src/BackofficePagesDtoMock"
+                    }
+                },
+                "require": {
+                    "php": ">=7.4"
+                },
+                "require-dev": {
+                    "ergebnis/composer-normalize": "^2.13",
+                    "friendsofphp/php-cs-fixer": "^2.18"
+                },
+                "authors": [
+                    {
+                        "name": "Team Pilot Front-End Presentation",
+                        "email": "sep-fe-pr@check24.de"
+                    }
+                ],
+                "description": "Contains DTOs provided by backoffice-pages' feeds providers",
+                "license": "proprietary",
+                "type": "library"
+            }
+        },
+        "shopping/s2-api-sdk": {
+            "5.62.0": {
+                "name": "shopping/s2-api-sdk",
+                "version": "5.62.0",
+                "dist": {
+                    "url": "https://packages.shopping.check24-test.de/repository/shopping_packages/shopping/s2-api-sdk/5.62.0/shopping-s2-api-sdk-5.62.0.zip",
+                    "type": "zip",
+                    "reference": "5e42d48e0fb6ebd8d84720d63ad4ad87104075ce",
+                    "shasum": "5e42d48e0fb6ebd8d84720d63ad4ad87104075ce"
+                },
+                "time": "2022-03-18T09:19:14+00:00",
+                "uid": 3840514998,
+                "autoload": {
+                    "psr-4": {
+                        "Shopping\\S2\\Sdk\\": "src",
+                        "Shopping\\S2\\Sdk\\Contexts\\": "features/bootstrap/Contexts"
+                    }
+                },
+                "autoload-dev": {
+                    "psr-4": {
+                        "Shopping\\S2\\Sdk\\Tests\\": "tests"
+                    }
+                },
+                "require": {
+                    "php": "^7.4 || ^8.0",
+                    "ext-json": "*",
+                    "guzzlehttp/guzzle": "^6.0 || ^7.0",
+                    "ramsey/uuid": "^3.8",
+                    "symfony/http-kernel": "^4.0 || ^5.0 || ^6.0"
+                },
+                "require-dev": {
+                    "behatch/contexts": "^3.2",
+                    "captainhook/captainhook": "^5.8.0",
+                    "dg/bypass-finals": "^1.3",
+                    "phpstan/phpstan": "^1.4.10",
+                    "phpunit/phpunit": "^9.5.19",
+                    "shopping/coding-standards": "^4.0"
+                },
+                "description": "This project provides a communication to s2-api and also provides the implementation for ItemData in all verticals through ItemDataCollector",
+                "license": "proprietary",
+                "scripts": {
+                    "setup:dev": [
+                        "@php vendor/bin/captainhook install"
+                    ],
+                    "build": [
+                        "@build:clean",
+                        "@build:prepare",
+                        "@build:lint",
+                        "@build:test"
+                    ],
+                    "build:clean": [
+                        "rm -rf vendor/"
+                    ],
+                    "build:latest": [
+                        "@build:clean",
+                        "@composer update"
+                    ],
+                    "build:lowest": [
+                        "@build:clean",
+                        "@composer update --prefer-lowest"
+                    ],
+                    "build:lint": [
+                        "@composer php:lint",
+                        "@composer php:phpstan"
+                    ],
+                    "build:prepare": [
+                        "@composer:install",
+                        "@php `which composer` dump-autoload --optimize --classmap-authoritative",
+                        "@sonar:prepare"
+                    ],
+                    "build:test": [
+                        "@composer validate",
+                        "@php:test:unit",
+                        "@sonar:report_only"
+                    ],
+                    "composer:install": "@composer install --no-interaction --no-scripts",
+                    "php:behat": "@php vendor/bin/behat -p vertical_staging",
+                    "php:lint": "@php vendor/bin/php-cs-fixer fix --show-progress=none --diff -v --using-cache=no --dry-run --allow-risky=yes",
+                    "php:lint-fix": "@php vendor/bin/php-cs-fixer fix -v --using-cache=no --allow-risky=yes",
+                    "php:phpstan": "@php vendor/bin/phpstan analyze src --configuration=extension.neon",
+                    "php:test:behat": "echo 'current disabled due to bheat dependency problems'; exit 1; @php vendor/bin/behat -p vertical_staging --format progress",
+                    "php:test:unit": "@php vendor/bin/phpunit --log-junit test-reports/phpunit.xml --coverage-clover test-reports/clover.xml",
+                    "sonar:prepare": "mkdir -p test-reports",
+                    "sonar:report_only": [
+                        "### Running sonar-scanner ###",
+                        "which sonar-scanner && sonar-scanner -Dsonar.branch.name=$(git rev-parse --abbrev-ref HEAD) || true",
+                        "### Finished sonar-scanner ###"
+                    ]
+                },
+                "type": "library"
+            },
+            "testsieger/clicktracker-url-composer": {
+                "0.2.3": {
+                    "name": "testsieger/clicktracker-url-composer",
+                    "version": "0.2.3",
+                    "dist": {
+                        "url": "https://packages.shopping.check24-test.de/repository/shopping_packages/testsieger/clicktracker-url-composer/0.2.3/testsieger-clicktracker-url-composer-0.2.3.zip",
+                        "type": "zip",
+                        "reference": "c41982b1d6ef5a270871ee7adc03496d0f3c80fb",
+                        "shasum": "c41982b1d6ef5a270871ee7adc03496d0f3c80fb"
+                    },
+                    "time": "2022-04-07T12:59:25+00:00",
+                    "uid": 3216803549,
+                    "autoload": {
+                        "psr-4": {
+                            "Testsieger\\Clicktracker\\UrlComposer\\": "src/"
+                        }
+                    },
+                    "autoload-dev": {
+                        "psr-4": {
+                            "Testsieger\\Clicktracker\\UrlComposer\\Tests\\App\\": "tests/App/src",
+                            "Testsieger\\Clicktracker\\UrlComposer\\Tests\\Unit\\": "tests/Unit",
+                            "Testsieger\\Clicktracker\\UrlComposer\\Tests\\Integration\\": "tests/Integration"
+                        }
+                    },
+                    "require": {
+                        "php": "^7.4 || ^8.0",
+                        "symfony/cache": "^4.4.26 || ^5.2",
+                        "symfony/error-handler": "^4.4.26 || ^5.2",
+                        "symfony/http-foundation": "^4.4.26 || ^5.2",
+                        "symfony/http-kernel": "^4.4.26 || ^5.2",
+                        "symfony/var-exporter": "^4.4.26 || ^5.2"
+                    },
+                    "require-dev": {
+                        "phpunit/phpunit": "^9.5.6",
+                        "shopping/coding-standards": "^3.3",
+                        "symfony/framework-bundle": "^4.4.26 || ^5.2",
+                        "symfony/yaml": "^4.4.26 || ^5.2"
+                    },
+                    "authors": [
+                        {
+                            "name": "Andreas Frömer",
+                            "email": "andreas.froemer@check24.de"
+                        }
+                    ],
+                    "conflict": {
+                        "symfony/polyfill-php70": "<1.20"
+                    },
+                    "description": "Library to compose tracking links targeting the clicktracker of testsieger",
+                    "license": "proprietary",
+                    "scripts": {
+                        "build": [
+                            "@build:clean",
+                            "@composer update --no-scripts"
+                        ],
+                        "build:clean": [
+                            "git clean -xf",
+                            "rm -rf vendor/"
+                        ],
+                        "build:latest": [
+                            "@build"
+                        ],
+                        "build:lowest": [
+                            "@build",
+                            "@composer update --prefer-lowest"
+                        ],
+                        "pre-operations-cmd": [
+                            "@test:security"
+                        ],
+                        "lint": [
+                            "@scs:test"
+                        ],
+                        "scs:test": [
+                            "@php vendor/bin/php-cs-fixer fix -v --show-progress=none",
+                            "@php vendor/bin/phpstan analyse --no-progress"
+                        ],
+                        "test": [
+                            "@test:security",
+                            "@php vendor/bin/phpunit"
+                        ],
+                        "test:security": "local-php-security-checker"
+                    },
+                    "type": "symfony-bundle"
+                }
+            }
+        }
+    }
+}
+
