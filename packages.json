@@ -446,90 +446,90 @@
                     ]
                 },
                 "type": "library"
-            },
-            "testsieger/clicktracker-url-composer": {
-                "0.2.3": {
-                    "name": "testsieger/clicktracker-url-composer",
-                    "version": "0.2.3",
-                    "dist": {
-                        "url": "https://packages.shopping.check24-test.de/repository/shopping_packages/testsieger/clicktracker-url-composer/0.2.3/testsieger-clicktracker-url-composer-0.2.3.zip",
-                        "type": "zip",
-                        "reference": "c41982b1d6ef5a270871ee7adc03496d0f3c80fb",
-                        "shasum": "c41982b1d6ef5a270871ee7adc03496d0f3c80fb"
-                    },
-                    "time": "2022-04-07T12:59:25+00:00",
-                    "uid": 3216803549,
-                    "autoload": {
-                        "psr-4": {
-                            "Testsieger\\Clicktracker\\UrlComposer\\": "src/"
-                        }
-                    },
-                    "autoload-dev": {
-                        "psr-4": {
-                            "Testsieger\\Clicktracker\\UrlComposer\\Tests\\App\\": "tests/App/src",
-                            "Testsieger\\Clicktracker\\UrlComposer\\Tests\\Unit\\": "tests/Unit",
-                            "Testsieger\\Clicktracker\\UrlComposer\\Tests\\Integration\\": "tests/Integration"
-                        }
-                    },
-                    "require": {
-                        "php": "^7.4 || ^8.0",
-                        "symfony/cache": "^4.4.26 || ^5.2",
-                        "symfony/error-handler": "^4.4.26 || ^5.2",
-                        "symfony/http-foundation": "^4.4.26 || ^5.2",
-                        "symfony/http-kernel": "^4.4.26 || ^5.2",
-                        "symfony/var-exporter": "^4.4.26 || ^5.2"
-                    },
-                    "require-dev": {
-                        "phpunit/phpunit": "^9.5.6",
-                        "shopping/coding-standards": "^3.3",
-                        "symfony/framework-bundle": "^4.4.26 || ^5.2",
-                        "symfony/yaml": "^4.4.26 || ^5.2"
-                    },
-                    "authors": [
-                        {
-                            "name": "Andreas Frömer",
-                            "email": "andreas.froemer@check24.de"
-                        }
+            }
+        },
+        "testsieger/clicktracker-url-composer": {
+            "0.2.3": {
+                "name": "testsieger/clicktracker-url-composer",
+                "version": "0.2.3",
+                "dist": {
+                    "url": "https://packages.shopping.check24-test.de/repository/shopping_packages/testsieger/clicktracker-url-composer/0.2.3/testsieger-clicktracker-url-composer-0.2.3.zip",
+                    "type": "zip",
+                    "reference": "c41982b1d6ef5a270871ee7adc03496d0f3c80fb",
+                    "shasum": "c41982b1d6ef5a270871ee7adc03496d0f3c80fb"
+                },
+                "time": "2022-04-07T12:59:25+00:00",
+                "uid": 3216803549,
+                "autoload": {
+                    "psr-4": {
+                        "Testsieger\\Clicktracker\\UrlComposer\\": "src/"
+                    }
+                },
+                "autoload-dev": {
+                    "psr-4": {
+                        "Testsieger\\Clicktracker\\UrlComposer\\Tests\\App\\": "tests/App/src",
+                        "Testsieger\\Clicktracker\\UrlComposer\\Tests\\Unit\\": "tests/Unit",
+                        "Testsieger\\Clicktracker\\UrlComposer\\Tests\\Integration\\": "tests/Integration"
+                    }
+                },
+                "require": {
+                    "php": "^7.4 || ^8.0",
+                    "symfony/cache": "^4.4.26 || ^5.2",
+                    "symfony/error-handler": "^4.4.26 || ^5.2",
+                    "symfony/http-foundation": "^4.4.26 || ^5.2",
+                    "symfony/http-kernel": "^4.4.26 || ^5.2",
+                    "symfony/var-exporter": "^4.4.26 || ^5.2"
+                },
+                "require-dev": {
+                    "phpunit/phpunit": "^9.5.6",
+                    "shopping/coding-standards": "^3.3",
+                    "symfony/framework-bundle": "^4.4.26 || ^5.2",
+                    "symfony/yaml": "^4.4.26 || ^5.2"
+                },
+                "authors": [
+                    {
+                        "name": "Andreas Frömer",
+                        "email": "andreas.froemer@check24.de"
+                    }
+                ],
+                "conflict": {
+                    "symfony/polyfill-php70": "<1.20"
+                },
+                "description": "Library to compose tracking links targeting the clicktracker of testsieger",
+                "license": "proprietary",
+                "scripts": {
+                    "build": [
+                        "@build:clean",
+                        "@composer update --no-scripts"
                     ],
-                    "conflict": {
-                        "symfony/polyfill-php70": "<1.20"
-                    },
-                    "description": "Library to compose tracking links targeting the clicktracker of testsieger",
-                    "license": "proprietary",
-                    "scripts": {
-                        "build": [
-                            "@build:clean",
-                            "@composer update --no-scripts"
-                        ],
-                        "build:clean": [
-                            "git clean -xf",
-                            "rm -rf vendor/"
-                        ],
-                        "build:latest": [
-                            "@build"
-                        ],
-                        "build:lowest": [
-                            "@build",
-                            "@composer update --prefer-lowest"
-                        ],
-                        "pre-operations-cmd": [
-                            "@test:security"
-                        ],
-                        "lint": [
-                            "@scs:test"
-                        ],
-                        "scs:test": [
-                            "@php vendor/bin/php-cs-fixer fix -v --show-progress=none",
-                            "@php vendor/bin/phpstan analyse --no-progress"
-                        ],
-                        "test": [
-                            "@test:security",
-                            "@php vendor/bin/phpunit"
-                        ],
-                        "test:security": "local-php-security-checker"
-                    },
-                    "type": "symfony-bundle"
-                }
+                    "build:clean": [
+                        "git clean -xf",
+                        "rm -rf vendor/"
+                    ],
+                    "build:latest": [
+                        "@build"
+                    ],
+                    "build:lowest": [
+                        "@build",
+                        "@composer update --prefer-lowest"
+                    ],
+                    "pre-operations-cmd": [
+                        "@test:security"
+                    ],
+                    "lint": [
+                        "@scs:test"
+                    ],
+                    "scs:test": [
+                        "@php vendor/bin/php-cs-fixer fix -v --show-progress=none",
+                        "@php vendor/bin/phpstan analyse --no-progress"
+                    ],
+                    "test": [
+                        "@test:security",
+                        "@php vendor/bin/phpunit"
+                    ],
+                    "test:security": "local-php-security-checker"
+                },
+                "type": "symfony-bundle"
             }
         }
     }
